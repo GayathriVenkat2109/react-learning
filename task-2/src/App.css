@@ -1,0 +1,14 @@
+table, th, td {
+  border: 1px solid black;
+}
+
+.user, .admin{
+  border: 5px solid lightblue;
+  width: 40%;
+  height: 200px;
+  border-radius: 2px;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 10px;
+  padding: 5px;
+}
