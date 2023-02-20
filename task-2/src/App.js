@@ -8,20 +8,26 @@ function App() {
   const showUser = () => {
     setUser(true);
   };
+  const hideUser = () => {
+    setUser(false);
+  };
 
   const [admin, setAdmin] = useState(false);
   const showAdmin = () => {
     setAdmin(true);
   };
+  const hideAdmin = () => {
+    setAdmin(false);
+  };
 
   return (
     <Fragment>
       <div className="user">
-        <button onClick={showUser}>Show User</button>
+        {user ? <button onClick={hideUser}>Hide User</button> : <button onClick={showUser}>Show User</button>}
         {user ? <UserInfo /> : null}
       </div>
       <div className="admin">
-        <button onClick={showAdmin}>Show Admin</button>
+        {admin ? <button onClick={hideAdmin}>Hide Admin</button> : <button onClick={showAdmin}>Show Admin</button>}
         {admin ? <AdminInfo /> : null}
       </div>
     </Fragment>
