@@ -5,7 +5,6 @@ import PostList from "./components/PostList";
 
 function App() {
   const [data, setData] = useState();
-  let responseValue = null;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,8 +20,7 @@ function App() {
   return (
     <Fragment>
       <PostList response={data} />
-      {data ? (responseValue = true) : (responseValue = false)}
-      <Mesage response={responseValue} />
+      <Mesage response={data} />
     </Fragment>
   );
 }
