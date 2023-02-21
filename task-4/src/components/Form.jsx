@@ -1,7 +1,9 @@
 import React from "react";
 import { useState } from "react";
+import SubmitButton from "./SubmitButton";
 
 export default function Form() {
+  let buttonDisable = true;
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,13 +17,17 @@ export default function Form() {
     }));
   };
 
+  const setButtonBasedOnValidation = () => {
+    if (!validateForm()) {
+      buttonDisable = true;
+    } else {
+      buttonDisable = false;
+    }
+  };
+
   const submitForm = (event) => {
     event.preventDefault();
-    if (!validateForm()) {
-      alert("INVALID FORM!!");
-    } else {
-      console.log("Form Submitted Successfully");
-    }
+    console.log("Form is submitted successfully");
   };
 
   const validateForm = () => {
@@ -68,7 +74,8 @@ export default function Form() {
             name="message"
           />
         </div>
-        <button type="submit">Submit Form</button>
+        {setButtonBasedOnValidation()}
+        <SubmitButton buttonDisable={buttonDisable} />
       </form>
     </div>
   );
