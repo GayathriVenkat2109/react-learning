@@ -3,7 +3,6 @@ import { useState } from "react";
 import SubmitButton from "./SubmitButton";
 
 export default function Form() {
-  let buttonDisable = true;
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,9 +18,9 @@ export default function Form() {
 
   const setButtonBasedOnValidation = () => {
     if (!validateForm()) {
-      buttonDisable = true;
+      return true;
     } else {
-      buttonDisable = false;
+      return false;
     }
   };
 
@@ -74,8 +73,7 @@ export default function Form() {
             name="message"
           />
         </div>
-        {setButtonBasedOnValidation()}
-        <SubmitButton buttonDisable={buttonDisable} />
+        <SubmitButton buttonDisable={setButtonBasedOnValidation()} />
       </form>
     </div>
   );
