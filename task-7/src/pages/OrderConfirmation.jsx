@@ -32,9 +32,9 @@ export default function OrderConfirmation() {
       <div>
         <br></br>
         <h3>Address</h3>
-        <h5>Name :{state.state2.formData.name}</h5>
-        <h5>Email :{state.state2.formData.email}</h5>
-        <h5>Phone :{state.state2.formData.phone}</h5>
+        <h5>Name :{state.addressData.name}</h5>
+        <h5>Email :{state.addressData.email}</h5>
+        <h5>Phone :{state.addressData.phone}</h5>
       </div>
       <form onSubmit={formSubmit}>
         <button className="btn btn-default" type="submit">

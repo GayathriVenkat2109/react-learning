@@ -2,9 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 export default function Payment() {
-  const location1 = useLocation();
-  const location2 = useLocation();
-  const state2 = location2.state;
+  const location = useLocation();
   const [paymentMethod, setPaymentMethod] = useState("COD");
 
   const radioBtnChange = (e) => {
@@ -83,10 +81,9 @@ export default function Payment() {
         <Link
           to="/orderConfirmation"
           state={{
-            ...location1.state,
+            ...location.state,
             paymentMethod,
-            formData,
-            state2,
+            formData
           }}
         >
           Proceed to order confirmation page
